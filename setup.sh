@@ -74,6 +74,10 @@ install_os_packages () {
 		sudo bash -c "yum groupinstall -y 'Development Tools' &&
 			yum install -y git patch openssl pigz tar which zlib-devel" || return 1
 		;;
+	'linux-fedora-22'*)
+		sudo bash -c "dnf group install -y 'Development Tools' &&
+			dnf install -y git patch openssl pigz tar which zlib-devel" || return 1
+		;;
 	'linux-gentoo'*)
 		# NOTE: There is no sudo on Gentoo Linux.
 		if [ "${uid}" -eq 0 ]; then
